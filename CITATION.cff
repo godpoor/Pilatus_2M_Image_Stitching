@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "如果您使用了这个软件，请按以下方式引用它"
+authors:
+  - family-names: "郭"
+    given-names: "朴"
+    alias: "godpoor"
+title: "Pilatus_2M_Image_Stitching"
+version: 1.0.0
+date-released: "2025-05-28"
+url: "https://github.com/godpoor/Pilatus_2M_Image_Stitching"
+abstract: "这是一个消去PIlatus 2M的GAP区域的解决方案，在SSRF BL02U2线站完成该代码的编写和测试。"
+keywords:
+  - Pilatus 2M
+  - GAP elimination
+  - image stitching
+  - SSRF BL02U2
+license: MIT
+institution:
+  - name: "中国科学院上海高等研究院上海光源BL02U2线站"
+contact:
+  - email: "godpoor@163.com" 

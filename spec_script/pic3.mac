@@ -1,0 +1,58 @@
+_delaytime=0.2
+_ctime  = 1
+def pic3 '
+	if ($# != 1)
+	{
+	        print "Usage: pic AcquireTime"
+		exit
+	}
+	_ctime =$1
+
+	print "First collection..."
+	epics_put("BL02U2:PILATUS2M:cam1:AcquireTime", _ctime)
+    epics_put("BL02U2:PILATUS2M:cam1:AcquirePeriod", _ctime)
+	epics_put("BL02U2:PILATUS2M:cam1:Acquire",1)
+	sleep(_ctime)
+	sleep(0.1)
+	while (epics_get("BL02U2:PILATUS2M:cam1:AcquireBusy") == "Acquiring")
+		{
+			sleep(0.1)
+		}
+
+	print "Motor moving..."
+	umvr detz -4;
+	umvr dety -3;
+	sleep(0.1)
+
+	print "Second collection..."
+	epics_put("BL02U2:PILATUS2M:cam1:AcquireTime", _ctime)
+    epics_put("BL02U2:PILATUS2M:cam1:AcquirePeriod", _ctime)
+	epics_put("BL02U2:PILATUS2M:cam1:Acquire",1)
+	sleep(_ctime)
+	sleep(0.1)
+	while (epics_get("BL02U2:PILATUS2M:cam1:AcquireBusy") == "Acquiring")
+		{
+			sleep(0.1)
+		}
+
+	print "Motor moving..."
+	umvr detz -4;
+	umvr dety -3;
+	sleep(0.1)
+
+	print "Third collection..."
+	epics_put("BL02U2:PILATUS2M:cam1:AcquireTime", _ctime)
+    epics_put("BL02U2:PILATUS2M:cam1:AcquirePeriod", _ctime)
+	epics_put("BL02U2:PILATUS2M:cam1:Acquire",1)
+	sleep(_ctime)
+	sleep(0.1)
+	while (epics_get("BL02U2:PILATUS2M:cam1:AcquireBusy") == "Acquiring")
+		{
+			sleep(0.1)
+		}
+		
+	print "The motor returns to its original position"
+	umvr detz +8;
+	umvr dety +6;
+	print "all be done!"
+'
